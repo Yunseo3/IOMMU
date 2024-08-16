@@ -12,7 +12,7 @@
 
 IOMMU 하드웨어를 활용한 PCI 패스스루 모델
 
-![IOMMU 하드웨어를 활용한 PCI 패스스루 모델](images/pci path through.png)
+![IOMMU 하드웨어를 활용한 PCI 패스스루 모델](images/pci_path_through.png)
 
 이거는 WM이 PCI물리적장치(SSD)를 직접 사용할 수있게하는것→ 패스스루 모델IOMMU로 안전하게 구현
 

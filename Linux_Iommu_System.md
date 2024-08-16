@@ -6,7 +6,7 @@
 
 ### **리눅스 커널의 IOMMU 서브시스템 – 개요**
 
-![리눅스 커널의 IOMMU 서브시스템](images/iommu subsystem.png)
+![리눅스 커널의 IOMMU 서브시스템](images/iommu_subsystem.png)
 
 1. **IOMMU DMA Layer**: 이 Layer는 I/O 장치로부터 DMA 요청을 받음 IOMMU 일반 Layer로 요청을 전달합니다. DMA-API와 IOMMU-API 사이에 있는 glue layer입니다.
 2. **IOMMU 일반 계층(또는 IOMMU-API 계층)**: DMA Layer에서 받은 요청 처리하고, 적절한 하드웨어 특정 IOMMU로 보내기 이 계층은 IOMMU DMA 계층 및 하드웨어 특정 IOMMU 계층과의 상호 작용을 위한 일반 IOMMU API를 제공합니다.

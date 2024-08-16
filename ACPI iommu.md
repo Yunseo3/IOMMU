@@ -21,7 +21,7 @@ I/O 가상화 메모리 정의( IVMD) : 특정 장치에 대한 특수한 메모
 - 그래픽 카드를 위한 전용 메모리 영역 정의
 - 특정 I/O 장치에 대한 DMA 버퍼 영역 지정
 
-![amd iommu](images/amd iommu.png)
+![amd iommu](images/amd_iommu.png)
 
 **ACPI 테이블의 IOMMU 정보와 Linux 커널의 IOMMU 초기화 과정**
 

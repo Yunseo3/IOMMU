@@ -1,6 +1,6 @@
 ## 8. 리눅스 커널 IOMMU : DMA 변환 모드 / 패스스루 모드
 
-![dma translation mode and pass-through mode](images/dma translation mode and pass-through mode.png)
+![dma translation mode and pass-through mode](images/dma_translation_mode_and_pass-through_mode.png)
 
 **IOMMU DMA Translation Mode(왼쪽)**
 
@@ -12,7 +12,7 @@
 - DMA 변환 모드: 보안성 높음, 성능 오버헤드 있음
 - DMA 변환 모드: 일반적인 시스템 보안이 중요한 경우
 
-![iommu pass-through mode](images/dma translation mode and pass-through mode.png)
+![iommu pass-through mode](images/dma_translation_mode_and_pass-through_mode.png)
 
 **IOMMU Pass-through Mode(오른쪽,2번사진)**
 

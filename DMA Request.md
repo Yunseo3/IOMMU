@@ -9,7 +9,7 @@ DMA 요청 처리 로직
 
 
 
-![계층 순서](images/dma request.png)
+![계층 순서](images/dma_request.png)
 
  I/O 디바이스에서 시작된 DMA 요청이 Linux 커널의 DMA 하위 시스템과 IOMMU 하위 시스템을 통해 어떻게 처리되는지 단계별 설명임
 

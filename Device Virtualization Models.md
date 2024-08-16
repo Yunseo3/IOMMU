@@ -8,14 +8,14 @@
 - Pass-through model
 
 1. Emualtion Model (하이퍼바이저 기반 장치 emualtion)
-   ![Emualtion Model](images/Emualtion Model.png)
+   ![Emualtion Model](images/Emualtion_Model.png)
 - **하이퍼바이저가 게스트 OS(가상머신에서 실행되는 운영체) 물리적 장치사이의  모 상호 작용 조작 / 게스트 OS 요청이 오면 이를 해석하고 가상주소를 물리주소로 변환해서 물리적 장치에 맞게 변환함**
 - **게스트 OS는 가상장치와 상호작용/직접 물리적 장치와 상호작용 안함**
 - **하이퍼바이저가 장치 주소를 가상에서 물리적으로, 또는 그 반대로 변환해야 합니다.**
 
 
 2. Pass-through Model
-   ![Pass-through Model](images/path through.png)
+   ![Pass-through Model](images/path_through.png)
 - **게스트 OS가 하이퍼바이저 우회하여 직접적으로 물리적장치와 상호작용**
 - **하이퍼바이저는 물리적 장치를 에뮬레이트하고 디바이스 주소를 변환하는 전용 소프트웨어를 배포할 필요가 없습니다.**
 - 가상화를 채택하지 않은 네트워킹 애플리케이션에 적합
