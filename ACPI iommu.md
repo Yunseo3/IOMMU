@@ -3,7 +3,7 @@
 - 시스템 플랫폼 펌웨어는 I/O 가상화를 설명하는 데이터 구조를 정의
 - 이 구조를 INTEL에서는 DMA Remapping Reporting, AMD에서는 I/O Virtualization Reporting 이라고 함
 - IOMMU 기능, 플랫폼의 구성을 OS 소프트웨어에 알리는데 사용되는 ACPI 테이블이 있음
-- 리눅스 IOMMU 하위 시스템에서 IOMMU 하드웨어를 초기화 할 때 IOMMU 드라이버는 ACPI 테이블에서 IVRS를 파싱함 시스템 IVRS가 없으면 IOMMU 드라잉버는 초기화 흐름을 무시함 반대로 IOMMU 드라이버는 하나 이상의 I/O 가상화 정의 블록을 포함하는 IVRS 기반으로 IOMMU 하드웨어를 초기화
+- 리눅스 IOMMU 하위 시스템에서 IOMMU 하드웨어를 초기화 할 때 IOMMU 드라이버는 ACPI 테이블에서 IVRS를 파싱함 시스템 IVRS가 없으면 IOMMU 드라이버는 초기화 흐름을 무시함 반대로 IOMMU 드라이버는 하나 이상의 I/O 가상화 정의 블록을 포함하는 IVRS 기반으로 IOMMU 하드웨어를 초기화
 <br><br>
 
 #### I/O 가상화 하드웨어 정의(IVHD) : 기능과 IOMMU 하드웨어 관련된 시스템 I/O 토폴로지 뿐만아니라 IOMMU 하드웨어의 기능 및 구성을 설명

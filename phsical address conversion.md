@@ -33,7 +33,7 @@
 ##### 최종정리
 
 **- 개요:**
-    - 이 그림은 4KB 페이지 크기를 사용하는 4-레벨 I/O 페이지 테이블을 통한 GVA에서 GPA로의 변환 과정을 보여줍니다.
+    - 이 그림은 4KB 페이지 크기를 사용하는 4-레벨 I/O 페이지 테이블을 통한 GVA에서 GPA로의 변환 과정을 보여줌.
     - 전체 주소 변환은 두 단계 : GVA → GPA (게스트 OS), GPA → SPA (호스트 OS/IOMMU)<br><br>
   
 **- GVA 구조 (48비트):**<br>
@@ -45,11 +45,11 @@
     - Physical Page Offset (비트 11-0): 12비트<br><br>
   
 **- 변환 과정:**<br>
-  a) PASID를 사용하여 GCR3 테이블에서 Level-4 페이지 테이블의 SPA를 찾습니다.
-  b) Level-4 페이지 테이블(PM4E)에서 Page Directory Pointer의 GPA를 찾습니다.
-  c) Level-3 페이지 테이블(PDPE)에서 Page Directory의 GPA를 찾습니다.
-  d) Level-2 페이지 테이블(PDE)에서 Page Table의 GPA를 찾습니다.
-  e) Level-1 페이지 테이블(PTE)에서 최종 물리 페이지의 GPA를 찾습니다.<br><br>
+  a) PASID를 사용하여 GCR3 테이블에서 Level-4 페이지 테이블의 SPA를 찾음.
+  b) Level-4 페이지 테이블(PM4E)에서 Page Directory Pointer의 GPA를 찾음.
+  c) Level-3 페이지 테이블(PDPE)에서 Page Directory의 GPA를 찾음.
+  d) Level-2 페이지 테이블(PDE)에서 Page Table의 GPA를 찾음.
+  e) Level-1 페이지 테이블(PTE)에서 최종 물리 페이지의 GPA를 찾음.<br><br>
 
 **- 주요 특징:**<br>
     - GCR3 테이블과 Level-4 테이블 주소는 SPA.
@@ -73,21 +73,21 @@
 
 - GVA로 PM4E 접근:
     - GVA의 최상위 비트들을 사용하여 PM4E 내의 특정 엔트리를 찾습니다. SPA를 사용해서 Level-4 Page Table에 접근
-    - PM4E의 시작 주소는 CR3 레지스터나 GCR3 테이블에서 가져옵니다.
+    - PM4E의 시작 주소는 CR3 레지스터나 GCR3 테이블에서 가져옴
 - PM4E 엔트리 내용:
-    - 맞습니다. PM4E 엔트리 안에 PDPE(Level-3 테이블)의 GPA가 있습니다.
+    - 맞습니다. PM4E 엔트리 안에 PDPE(Level-3 테이블)의 GPA가 있음
 - PDPE 접근:
-    - IOMMU가 PM4E에서 얻은 PDPE의 GPA를 SPA로 변환합니다.
-    - 이 SPA를 사용하여 실제 물리 메모리의 PDPE에 접근합니다.
+    - IOMMU가 PM4E에서 얻은 PDPE의 GPA를 SPA로 변환
+    - 이 SPA를 사용하여 실제 물리 메모리의 PDPE에 접근
 </aside>
 </div><br><br>
 
 - protection_domain:
-    - IOMMU 보호 도메인과 관련된 정보를 포함합니다.
-    - 여기에는 장치 목록, 도메인 ID, 모드 등의 정보가 포함됩니다.
+    - IOMMU 보호 도메인과 관련된 정보를 포함
+    - 여기에는 장치 목록, 도메인 ID, 모드 등의 정보가 포함
 - PASID (Process Address Space ID):
     - 프로세스 주소 공간 식별자입니다.
-    - 여러 프로세스나 가상 머신이 동일한 I/O 장치를 공유할 때 사용됩니다.<br><br><br>
+    - 여러 프로세스나 가상 머신이 동일한 I/O 장치를 공유할 때 사용<br><br><br>
 
 ### GPA → SPA
 
@@ -97,7 +97,7 @@ Figure 7은 GPA(Guest Physical Address)에서 SPA(System Physical Address)로의
 
 **목적:**<br>
 
-   Guest Physical Address (GPA)를 System Physical Address (SPA)로 변환하는 과정을 보여줍니다.<br><br>
+   Guest Physical Address (GPA)를 System Physical Address (SPA)로 변환하는 과정을 보여줌<br><br>
 **2. 입력:**<br>
    Guest Physical Address (GPA) - 그림 상단에 표시됨<br>
     - 비트 63-57: 사용되지 않음 (000_0000b)<br>
@@ -111,7 +111,7 @@ Figure 7은 GPA(Guest Physical Address)에서 SPA(System Physical Address)로의
     - Level-3 Page Table<br>
     - Level-2 Page Table<br>
     - Level-1 Page Table<br>
-      모든 테이블의 주소와 엔트리는 SPA로 표현됩니다.<br><br>
+      모든 테이블의 주소와 엔트리는 SPA로 표현.<br><br>
 **4. 변환 과정:**<br>
    a) BDF(Bus/Device/Function)를 사용해 Device Table 접근 (SPA)<br>
    b) Device Table에서 Level-3 Page Table의 기본 주소(SPA) 획득<br>
@@ -127,15 +127,15 @@ Figure 7은 GPA(Guest Physical Address)에서 SPA(System Physical Address)로의
     - 모든 페이지 테이블과 엔트리가 SPA로 표현되어 있어, 추가적인 주소 변환이 필요 없다.<br>
     - IOMMU는 이 구조를 사용하여 GPA에 해당하는 SPA를 직접 찾아낼 수 있음.<br><br>
 **6. 용도:**<br>
-    - 가상화 환경에서 I/O 디바이스의 DMA 요청을 처리할 때 사용됩니다.
-    - 게스트 OS와 호스트 시스템 간의 메모리 격리를 제공합니다.
+    - 가상화 환경에서 I/O 디바이스의 DMA 요청을 처리할 때 사용
+    - 게스트 OS와 호스트 시스템 간의 메모리 격리를 제공
 
-이 구조를 통해 IOMMU는 게스트 OS가 사용하는 물리 주소(GPA)를 실제 시스템의 물리 주소(SPA)로 효율적으로 변환할 수 있습니다.
+이 구조를 통해 IOMMU는 게스트 OS가 사용하는 물리 주소(GPA)를 실제 시스템의 물리 주소(SPA)로 효율적으로 변환
 <br>
 <br><br>
 <div style="border: 1px solid black; padding: 10px; background-color: #f0f0f0;">
 <aside>
-👉 IOMMU는 GPA를 SPA로 변환합니다. 각 단계에서 페이지 테이블 엔트리가 가리키는 주소는 SPA이며, 이를 사용하여 다음 레벨의 페이지 테이블 또는 최종 물리 페이지에 접근합니다. GPA는 각 레벨에서 올바른 엔트리를 찾는 인덱스로 사용
+👉 IOMMU는 GPA를 SPA로 변환 각 단계에서 페이지 테이블 엔트리가 가리키는 주소는 SPA이며, 이를 사용하여 다음 레벨의 페이지 테이블 또는 최종 물리 페이지에 접근 GPA는 각 레벨에서 올바른 엔트리를 찾는 인덱스로 사용
 
 </aside>
 </div><br><br><br>
