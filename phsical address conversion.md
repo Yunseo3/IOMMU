@@ -72,10 +72,10 @@
 👉 장치에서 시작하여 PASID를 통해 적절한 GCR3 테이블 엔트리를 찾고, 이를 통해 게스트의 페이지 테이블에 접근하는 과정
 
 - GVA로 PM4E 접근:
-    - GVA의 최상위 비트들을 사용하여 PM4E 내의 특정 엔트리를 찾습니다. SPA를 사용해서 Level-4 Page Table에 접근
+    - GVA의 최상위 비트들을 사용하여 PM4E 내의 특정 엔트리를 찾음. SPA를 사용해서 Level-4 Page Table에 접근
     - PM4E의 시작 주소는 CR3 레지스터나 GCR3 테이블에서 가져옴
 - PM4E 엔트리 내용:
-    - 맞습니다. PM4E 엔트리 안에 PDPE(Level-3 테이블)의 GPA가 있음
+    - PM4E 엔트리 안에 PDPE(Level-3 테이블)의 GPA가 있음
 - PDPE 접근:
     - IOMMU가 PM4E에서 얻은 PDPE의 GPA를 SPA로 변환
     - 이 SPA를 사용하여 실제 물리 메모리의 PDPE에 접근
@@ -146,11 +146,14 @@ Figure 6 (GVA to GPA 변환):
 
 **1. 목적:**<br>
  - 게스트 가상 주소(GVA)를 게스트 물리 주소(GPA)로 변환
+
 **2. 구조:**<br>
  - GCR3 Table: SPA로 표현
  - Level-4 Page Table (PM4E)부터: GPA로 표현<br>
+
 **3. 변환 과정:**<br>
    GVA → GCR3 Table(SPA) → PM4E(GPA) → PDPE(GPA) → PDE(GPA) → PTE(GPA) → 최종 GPA<br>
+
 **4. 특징:**<br>
  - 게스트 OS의 관점에서 수행되는 주소 변환
  - 실제 물리 메모리 접근을 위해서는 추가적인 GPA → SPA 변환이 필요<br><br><br>
